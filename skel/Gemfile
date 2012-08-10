@@ -1,0 +1,5 @@
+gem 'sprockets-assistant'
+
+gem 'thin'
+gem 'compass'
+
