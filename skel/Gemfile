@@ -1,5 +1,10 @@
+source :rubygems
+
 gem 'sprockets-assistant'
+gem 'jquery-rails', :require => nil
 
 gem 'thin'
 gem 'compass'
 
+# haml.js
+# gem 'cshaml-sprockets'

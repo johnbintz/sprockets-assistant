@@ -2,6 +2,8 @@ require 'sprockets'
 require 'sprockets-vendor_gems/extend_all'
 require 'pathname'
 require 'sprockets/assistant/output'
+require 'sprockets-sass'
+require 'sprockets/assistant/compass'
 
 module Sprockets
   module Assistant
@@ -16,6 +18,10 @@ module Sprockets
       end
 
       def compile
+        ::Compass.configuration do |c|
+          c.output_style = :compressed
+        end
+
         @env = Sprockets::Environment.new
         @env.append_path('assets/javascripts')
         @env.append_path('assets/stylesheets')

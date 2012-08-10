@@ -1,29 +1,31 @@
-# Sprockets::Assistant
+# Sprockets Assistant
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'sprockets-assistant'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sprockets-assistant
+An upgraded `Sprockets::Secretary`. A simple way to let me build little libraries and widgets and
+things for various projects, while still taking advantage of all the Sprockets libraries and goodness
+that I use elsewhere.
 
 ## Usage
 
-TODO: Write usage instructions here
+    gem install sprockets-assistant
+    sprockets-assistant create my_project
+    cd my_project
+    bundle exec sprockets-assistant
 
-## Contributing
+This starts a server on localhost:8080. Hack away.
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+## `assistant_config.rb`
+
+Prett simple DSL:
+
+### `middleware`
+
+Define a middleware stack.
+
+### `app`
+
+This is the guts of a `Sinatra::Base` app.
+
+### `compile`
+
+A list of files to compile with `sprockets-assistant compile`.
+

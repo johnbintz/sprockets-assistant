@@ -1,3 +1,6 @@
+# haml
+# require 'cshaml-sprockets'
+
 middleware do
   # use Rack::LiveReload
 end

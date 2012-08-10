@@ -9,6 +9,8 @@ module Sprockets
 
       def initialize
         require 'sprockets/assistant/app_builder'
+        require 'sprockets-sass'
+        require 'sprockets/assistant/compass'
 
         @app_builder = AppBuilder.new
       end
@@ -27,8 +29,6 @@ module Sprockets
           instance_eval(&_app_builder.middleware)
 
           map "/#{Sinatra::Sprockets.config.prefix}" do
-            $stderr.puts Sinatra::Sprockets.environment.inspect
-
             run Sinatra::Sprockets.environment
           end
 

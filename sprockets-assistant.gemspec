@@ -4,8 +4,8 @@ require File.expand_path('../lib/sprockets/assistant/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["John Bintz"]
   gem.email         = ["john@coswellproductions.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A modern replacement for Sprockets::Secretary.}
+  gem.summary       = %q{A modern replacement for Sprockets::Secretary.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
@@ -20,6 +20,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'sinatra-sprockets-ext'
   gem.add_dependency 'coffee-script'
   gem.add_dependency 'sass'
+  gem.add_dependency 'compass'
   gem.add_dependency 'sprockets-vendor_gems'
+  gem.add_dependency 'sprockets-sass'
 end
 

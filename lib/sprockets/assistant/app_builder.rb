@@ -6,8 +6,10 @@ require 'sprockets/assistant/compiler'
 module Sprockets
   module Assistant
     class AppBuilder
+      ASSISTANT_CONFIG_FILE = Pathname('assistant_config.rb')
+
       def initialize
-        instance_eval(File.read('assistant_config.rb'))
+        instance_eval(ASSISTANT_CONFIG_FILE.read)
       end
 
       def app(&block)
