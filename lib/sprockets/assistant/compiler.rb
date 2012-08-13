@@ -4,6 +4,7 @@ require 'pathname'
 require 'sprockets/assistant/output'
 require 'sprockets-sass'
 require 'sprockets/assistant/compass'
+require 'yui/compressor'
 
 module Sprockets
   module Assistant
@@ -17,7 +18,7 @@ module Sprockets
         @target = DEFAULT_TARGET
       end
 
-      def compile
+      def compile(paths)
         ::Compass.configuration do |c|
           c.output_style = :compressed
         end
@@ -26,6 +27,8 @@ module Sprockets
         @env.append_path('assets/javascripts')
         @env.append_path('assets/stylesheets')
 
+        paths.each { |path| @env.append_path(path) }
+
         instance_eval(&@settings)
       end
 
@@ -33,8 +36,18 @@ module Sprockets
         file_target = target.join(name)
         say "#{name} => #{file_target}"
 
+        js_compressor = YUI::JavaScriptCompressor.new(:munge => true)
+
         file_target.parent.mkpath
-        target.join(name).open('w') { |fh| fh.print @env[name].to_s }
+        target.join(name).open('w') { |fh|
+          output = @env[name].to_s
+
+          if File.extname(name) == '.js'
+            output = js_compressor.compress(output)
+          end
+
+          fh.print output
+        }
       end
 
       def target

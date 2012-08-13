@@ -8,8 +8,16 @@ module Sprockets
     class AppBuilder
       ASSISTANT_CONFIG_FILE = Pathname('assistant_config.rb')
 
+      attr_reader :paths
+
       def initialize
+        @paths = []
+
         instance_eval(ASSISTANT_CONFIG_FILE.read)
+      end
+
+      def append_path(path)
+        @paths << path
       end
 
       def app(&block)
@@ -42,7 +50,7 @@ module Sprockets
         if block
           @compile = block
         else
-          Compiler.new(@compile).compile
+          Compiler.new(@compile).compile(@paths)
         end
       end
     end

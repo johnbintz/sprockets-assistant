@@ -17,6 +17,10 @@ This starts a server on localhost:8080. Hack away.
 
 Prett simple DSL:
 
+### `append_path`
+
+Add a load path to Sprockets.
+
 ### `middleware`
 
 Define a middleware stack.
@@ -27,5 +31,6 @@ This is the guts of a `Sinatra::Base` app.
 
 ### `compile`
 
-A list of files to compile with `sprockets-assistant compile`.
+A list of files to compile with `sprockets-assistant compile`. YUI compressor is used to make the
+JS files really small.
 

@@ -29,7 +29,9 @@ module Sprockets
           instance_eval(&_app_builder.middleware)
 
           map "/#{Sinatra::Sprockets.config.prefix}" do
-            run Sinatra::Sprockets.environment
+            env = Sinatra::Sprockets.environment
+            _app_builder.paths.each { |path| env.append_path(path) }
+            run env
           end
 
           run _app

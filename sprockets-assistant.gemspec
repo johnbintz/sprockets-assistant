@@ -23,5 +23,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'compass'
   gem.add_dependency 'sprockets-vendor_gems'
   gem.add_dependency 'sprockets-sass'
+  gem.add_dependency 'yui-compressor'
 end
 

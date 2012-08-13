@@ -8,10 +8,13 @@ module Sprockets
       source_root File.expand_path('../../../..', __FILE__)
 
       desc "server", "server"
+      method_options %w{port -p} => 8080
       def server
         require 'sprockets/assistant/server'
 
-        Rack::Handler.default.run(Sprockets::Assistant::Server.app)
+        $stdout.sync = true
+
+        Rack::Handler.default.run(Sprockets::Assistant::Server.app, :Port => options[:port])
       end
 
       desc "compile", "compile things"
