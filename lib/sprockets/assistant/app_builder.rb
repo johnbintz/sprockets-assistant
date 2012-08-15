@@ -31,6 +31,10 @@ module Sprockets
 
             register Sinatra::Sprockets
 
+            Sinatra::Sprockets.configure do |c|
+              c.compile = true
+            end
+
             set :views, 'views'
 
             class_eval(&_app)
