@@ -1,5 +1,6 @@
 require 'rack'
 require 'thor'
+require 'bundler'
 
 module Sprockets
   module Assistant
